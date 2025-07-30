@@ -11,3 +11,7 @@ A procedurally generated roguelike written in Python
 
 1. Run locally with `$> python main.py`
 1. Deactivate virtual environment with `$> deactivate`
+
+# References
+
+- https://rogueliketutorials.com/tutorials/tcod/v2/
