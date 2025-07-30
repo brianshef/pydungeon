@@ -9,7 +9,7 @@ A procedurally generated roguelike written in Python
 
 ## Running Locally
 
-1. Run locally with `$> python main.py`
+1. Run locally with `$> python main.py` or `$> ./main.py`
 1. Deactivate virtual environment with `$> deactivate`
 
 # References
