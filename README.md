@@ -1,5 +1,8 @@
 # pydungeon
+
 A procedurally generated roguelike written in Python
+
+![Screenshot](./assets/screenshot.png)
 
 ## Development
 
