@@ -23,3 +23,4 @@ A procedurally generated roguelike written in Python
 # References
 
 - https://rogueliketutorials.com/tutorials/tcod/v2/
+- https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
