@@ -4,6 +4,11 @@ A procedurally generated roguelike written in Python
 
 ![Screenshot](./assets/screenshot.png)
 
+# Playing
+ - You are the player, `@`
+ - You may walk on floors, but not pass through walls
+ - Movement: arrow keys
+
 ## Development
 
 1. Create the virtual environment with `$> python -m venv .venv`
