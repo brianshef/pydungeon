@@ -4,6 +4,11 @@ A procedurally generated roguelike written in Python
 
 ![Screenshot](./assets/screenshot.png)
 
+# Playing
+ - You are the player, `@`
+ - You may walk on floors, but not pass through walls
+ - Movement: arrow keys
+
 ## Development
 
 1. Create the virtual environment with `$> python -m venv .venv`
@@ -18,3 +23,5 @@ A procedurally generated roguelike written in Python
 # References
 
 - https://rogueliketutorials.com/tutorials/tcod/v2/
+- https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
+- https://python-tcod.readthedocs.io/en/latest/tcod/map.html#tcod.map.compute_fov

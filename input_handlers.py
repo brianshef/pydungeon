@@ -2,7 +2,7 @@ from typing import Optional
 
 import tcod.event
 
-from actions import Action, EscapeAction, MovementAction
+from actions import Action, BumpAction, EscapeAction
 
 MOVE_KEYS = {  # key_symbol: (x, y)
         # Arrow keys.
@@ -56,17 +56,17 @@ class EventHandler(tcod.event.EventDispatch[Action]):
 
         def cmd_move(self, x: int, y: int) -> Optional[Action]:
             """Intent to move: `x` and `y` is the direction, both may be 0."""
-            print("Command move: " + str((x, y)))
-            return MovementAction(x, y)
+            # print("Command move: " + str((x, y)))
+            return BumpAction(x, y)
 
         def cmd_escape(self) -> Optional[Action]:
             """Intent to exit this state."""
-            print("Command escape.")
+            # print("Command escape.")
             return EscapeAction()
 
         def cmd_quit(self) -> Optional[Action]:
             """Intent to exit the game."""
-            print("Command quit.")
+            # print("Command quit.")
             raise SystemExit()
 
         def dispatch(self, event) -> Optional[Action]:
