@@ -1,8 +1,13 @@
-from typing import Optional
+from __future__ import annotations
+
+from typing import Optional, TYPE_CHECKING
 
 import tcod.event
 
 from actions import Action, BumpAction, EscapeAction
+
+if TYPE_CHECKING:
+    from engine import Engine
 
 MOVE_KEYS = {  # key_symbol: (x, y)
         # Arrow keys.
@@ -30,6 +35,21 @@ MOVE_KEYS = {  # key_symbol: (x, y)
 
 
 class EventHandler(tcod.event.EventDispatch[Action]):
+        def __init__(self, engine: Engine):
+            self.engine = engine
+        
+        def handle_events(self) -> None:
+            for event in tcod.event.wait():
+                action = self.dispatch(event)
+
+                if action is None:
+                    continue
+
+                action.perform()
+
+                self.engine.handle_enemy_turns()
+                self.engine.update_fov()  # Update the FOV before the players next action.
+
         def ev_quit(self, event: tcod.event.Quit) -> Optional[Action]:
             """The window close button was clicked or Alt+F$ was pressed."""
             print(event)
@@ -57,12 +77,12 @@ class EventHandler(tcod.event.EventDispatch[Action]):
         def cmd_move(self, x: int, y: int) -> Optional[Action]:
             """Intent to move: `x` and `y` is the direction, both may be 0."""
             # print("Command move: " + str((x, y)))
-            return BumpAction(x, y)
+            return BumpAction(self.engine.player, dx=x, dy=y)
 
         def cmd_escape(self) -> Optional[Action]:
             """Intent to exit this state."""
             # print("Command escape.")
-            return EscapeAction()
+            return EscapeAction(self.engine.player)
 
         def cmd_quit(self) -> Optional[Action]:
             """Intent to exit the game."""
