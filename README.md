@@ -25,3 +25,4 @@ A procedurally generated roguelike written in Python
 - https://rogueliketutorials.com/tutorials/tcod/v2/
 - https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm
 - https://python-tcod.readthedocs.io/en/latest/tcod/map.html#tcod.map.compute_fov
+- https://python-tcod.readthedocs.io/en/latest/tcod/path.html
